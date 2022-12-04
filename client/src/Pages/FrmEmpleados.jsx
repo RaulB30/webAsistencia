@@ -17,13 +17,14 @@ function FrmEmpleados() {
     nombres: "",
     apePat: "",
     apeMat: "",
-    estado: "",
-    fecNac: "",
-    telf: "",
+    estado_civ: "",
+    fecha_nac: "",
+    telefono: "",
     direccion: "",
     hijos: false,
     licencia: "",
-    contactoEmer:"",
+    contacto_emer: "",
+    sistema_pension: "",
   });
 
   useEffect(() => {
@@ -38,13 +39,13 @@ function FrmEmpleados() {
             apePat: empleado.data.APEPAT,
             apeMat: empleado.data.APEMAT,
             direccion: empleado.data.DIRECCION,
-            contactoEmer: empleado.data.CONTACTO_EMER,
-            estado: empleado.data.ESTADO_CIV,
+            contacto_Emer: empleado.data.CONTACTO_EMER,
+            estado_civ: empleado.data.ESTADO_CIV,
             hijos: empleado.data.HIJOS,
-            sistemaPension: empleado.data.SISTEMA_PENSION,
+            sistema_pension: empleado.data.SISTEMA_PENSION,
             licencia: empleado.data.LICENCIA,
-            fecNac: empleado.data.date,
-            telf: empleado.data.TELEFONO,
+            fecha_nac: empleado.data.date,
+            telefono: empleado.data.TELEFONO,
           });
         } catch (error) {
           navigate("/");
@@ -68,10 +69,12 @@ function FrmEmpleados() {
               if (params.id) {
                 const response = await actualizarEmpleado(params.id,values);
                 console.log(response);
-              }
+                location.reload();
+              }else{
               const response = await crearEmpleado(values);
-              console.log(response);
-              toast.success("Empleado registado!", {
+                console.log(response);
+              }
+              toast.success(params.id ? "Empleado Actualizado!" : "Empleado Registrado!", {
                 style: {
                   color: "green",
                   border: "1px solid green",
@@ -139,11 +142,11 @@ function FrmEmpleados() {
               <label>Fecha Nacimiento</label>
               <input
                 type="date"
-                name="fecNac"
+                name="fecha_nac"
                 placeholder="Fecha de Nacimiento"
                 onChange={handleChange}
                 required
-                value={values.fecNac || ""}
+                value={values.fecha_nac || ""}
                 className={styles.caja_fecha}
               />
 
@@ -161,22 +164,22 @@ function FrmEmpleados() {
               <label>Telefono</label>
               <input
                 type="text"
-                name="telf"
+                name="telefono"
                 placeholder="Cel / Telf"
                 onChange={handleChange}
                 required
-                value={values.telf || ""}
+                value={values.telefono || ""}
                 className={styles.cajas_texto}
               />
 
               <label>Contacto de Emergencia</label>
               <input
                 type="text"
-                name="contactoEmer"
+                name="contacto_Emer"
                 placeholder="Numero de Emergencia"
                 onChange={handleChange}
                 required
-                value={values.contactoEmer || ""}
+                value={values.contacto_Emer || ""}
                 className={styles.cajas_texto}
               />
 
@@ -195,8 +198,8 @@ function FrmEmpleados() {
               <select
                 className={styles.combo}
                 onChange={handleChange}
-                name="estado"
-                value={values.estado || "No especifica"}
+                name="estado_civ"
+                value={values.estado_civ || "No especifica"}
               >
                 <option value="No especifica">Seleccione...</option>
                 <option value="Soltero">Soltero</option>
@@ -213,11 +216,11 @@ function FrmEmpleados() {
               <label>Sistema de Pension</label>
               <input
                 type="text"
-                name="sistemaPension"
+                name="sistema_pension"
                 placeholder="Sistema de Pension"
                 onChange={handleChange}
                 required
-                value={values.sistemaPension || ""}
+                value={values.sistema_pension || ""}
                 className={styles.cajas_texto}
               />
 
