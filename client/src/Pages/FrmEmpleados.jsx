@@ -73,6 +73,7 @@ function FrmEmpleados() {
               }else{
               const response = await crearEmpleado(values);
                 console.log(response);
+                
               }
               toast.success(params.id ? "Empleado Actualizado!" : "Empleado Registrado!", {
                 style: {
@@ -81,6 +82,7 @@ function FrmEmpleados() {
                 },
               });
               actions.resetForm();
+              
             } catch (error) {
               console.log(error);
               if (error.response.data.message.includes("Duplicate"))

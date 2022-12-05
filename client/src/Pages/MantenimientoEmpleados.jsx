@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { listarEmpleados, eliminarEmpleado } from "../api/empleados.api";
 import swal from "sweetalert2";
 
+
 function MantenimientoEmpleados() {
   const [tablaEmp, settablaEmp] = useState([]);
   const [empleados, setempleados] = useState([]);
@@ -45,7 +46,7 @@ function MantenimientoEmpleados() {
   };
 
   const actualizartabla = () => {
-    let criterio = document.getElementsByName("dni")[0].value;
+    let criterio = document.getElementsByName("dni")[0].value.toUpperCase();
     let filtroEmpleados = "";
     // alert(criterio.length);
     console.log("TABLA EMPLEADOS: ", tablaEmp);
@@ -54,7 +55,12 @@ function MantenimientoEmpleados() {
       setempleados(tablaEmp);
       console.log("EMPLEADOS ", empleados);
       filtroEmpleados = empleados.filter((emp) => {
-        if (emp.DNI.toString().startsWith(criterio)) return emp;
+        if (
+          emp.DNI.toString().toUpperCase().startsWith(criterio) ||
+          emp.APEPAT.toString().toUpperCase().startsWith(criterio) ||
+          emp.APEMAT.toString().toUpperCase().startsWith(criterio)
+        )
+          return empleados;
       });
 
       if (filtroEmpleados.length !== 0) {
