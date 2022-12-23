@@ -26,6 +26,7 @@ function FrmEmpleados() {
     contacto_emer: "",
     sistema_pension: "",
   });
+  
 
   useEffect(() => {
     if (params.id) {
@@ -41,7 +42,7 @@ function FrmEmpleados() {
             direccion: empleado.data.DIRECCION,
             contacto_Emer: empleado.data.CONTACTO_EMER,
             estado_civ: empleado.data.ESTADO_CIV,
-            hijos: empleado.data.HIJOS,
+            hijos: Boolean(empleado.data.HIJOS),
             sistema_pension: empleado.data.SISTEMA_PENSION,
             licencia: empleado.data.LICENCIA,
             fecha_nac: empleado.data.date,
@@ -211,8 +212,8 @@ function FrmEmpleados() {
               <Field
                 className={styles.check}
                 type="checkbox"
-                name="hijos"
-                id="hijos"
+                 name="hijos"
+                
               />
 
               <label>Sistema de Pension</label>
@@ -224,6 +225,16 @@ function FrmEmpleados() {
                 required
                 value={values.sistema_pension || ""}
                 className={styles.cajas_texto}
+              />
+              <input
+              className={styles.btnCancelar}
+                type="submit"
+                onClick={()=>{
+                  navigate("/mantenimientoEmpleados");
+                }}
+                value="Cancelar"
+                  
+                
               />
 
               <input

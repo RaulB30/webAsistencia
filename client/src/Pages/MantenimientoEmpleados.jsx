@@ -82,7 +82,7 @@ function MantenimientoEmpleados() {
         <Formik className={styles.form_container} initialValues={{ dni: "" }}>
           {({ handleSubmit, values }) => (
             <Form className={styles.form_container}>
-              <label>DNI</label>
+              <label></label>
               <input
                 type="text"
                 name="dni"
