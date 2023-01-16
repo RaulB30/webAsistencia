@@ -9,6 +9,10 @@ import { Toaster, toast } from "react-hot-toast";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+const reset = () =>{
+setTimeout("location.reload()",1200)
+}
+
 function FrmEmpleados() {
   const params = useParams();
   const navigate = useNavigate();
@@ -26,7 +30,7 @@ function FrmEmpleados() {
     contacto_emer: "",
     sistema_pension: "",
   });
-  
+
 
   useEffect(() => {
     if (params.id) {
@@ -68,13 +72,15 @@ function FrmEmpleados() {
 
             try {
               if (params.id) {
-                const response = await actualizarEmpleado(params.id,values);
+                const response = await actualizarEmpleado(params.id, values);
                 console.log(response);
-                location.reload();
-              }else{
-              const response = await crearEmpleado(values);
-                console.log(response);
+                                
                 
+                
+              } else {
+                const response = await crearEmpleado(values);
+                console.log(response);
+
               }
               toast.success(params.id ? "Empleado Actualizado!" : "Empleado Registrado!", {
                 style: {
@@ -83,7 +89,8 @@ function FrmEmpleados() {
                 },
               });
               actions.resetForm();
-              
+              reset();
+
             } catch (error) {
               console.log(error);
               if (error.response.data.message.includes("Duplicate"))
@@ -212,8 +219,8 @@ function FrmEmpleados() {
               <Field
                 className={styles.check}
                 type="checkbox"
-                 name="hijos"
-                
+                name="hijos"
+
               />
 
               <label>Sistema de Pension</label>
@@ -227,14 +234,14 @@ function FrmEmpleados() {
                 className={styles.cajas_texto}
               />
               <input
-              className={styles.btnCancelar}
+                className={styles.btnCancelar}
                 type="submit"
-                onClick={()=>{
+                onClick={() => {
                   navigate("/mantenimientoEmpleados");
                 }}
                 value="Cancelar"
-                  
-                
+
+
               />
 
               <input
@@ -245,8 +252,8 @@ function FrmEmpleados() {
                   isSubmitting
                     ? "Guardando..."
                     : params.id
-                    ? "Actualizar"
-                    : "Guardar"
+                      ? "Actualizar"
+                      : "Guardar"
                 }
               />
             </Form>

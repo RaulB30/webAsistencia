@@ -17,7 +17,7 @@ function NavBar() {
             <Link to="/mantenimientoEmpleados">Mantenimiento Empleados</Link>
           </li>
           <li>
-            <Link to="/prueba">prueba</Link>
+            <Link to="/login">prueba</Link>
           </li>
         </ul>
       </nav>

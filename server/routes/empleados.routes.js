@@ -6,6 +6,7 @@ import {
   crearEmpleado,
   actEmpleados,
   eliEmpleados,
+  loginEmpleado
   
 } from "../controllers/empleados.controller.js";
 
@@ -20,5 +21,7 @@ router.post("/empleados", crearEmpleado);
 router.put("/empleados/:id", actEmpleados);
 
 router.delete("/empleados/:id", eliEmpleados);
+
+router.post("/empleados",loginEmpleado)
 
 export default router;

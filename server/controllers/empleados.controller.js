@@ -113,3 +113,21 @@ export const eliEmpleados = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const loginEmpleado =  async (req,res) =>{
+  try {
+
+    const {
+      dni,
+      password,
+    } = req.body;
+    const [rows] = await pool.query("Select *  from empleados where DNI = ? AND password = ? ", req.body)
+
+    if (rows.length===0){
+      return res.status(404).json({ message: "Empleado no encontrado" });
+    }
+    res.json(rows);
+  } catch (error) {
+    return res.status(500).json({ menubar: error.message });
+  }
+}

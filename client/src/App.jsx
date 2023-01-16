@@ -5,6 +5,7 @@ import FrmEmpleados from "./Pages/FrmEmpleados";
 import NotFound from "./Pages/NotFound";
 import NavBar from "./Components/NavBar";
 import Prueba from "./Pages/Prueba";
+import Login from "./Pages/Login";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         ></Route>
         <Route path="/prueba" element={<Prueba />}></Route>
         <Route path="/editEmpleado/:id" element={<FrmEmpleados/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
       </Routes>
     </>
   );
