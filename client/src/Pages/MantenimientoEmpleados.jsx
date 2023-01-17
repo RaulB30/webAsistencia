@@ -7,10 +7,17 @@ import swal from "sweetalert2";
 
 
 function MantenimientoEmpleados() {
+
+
+
   const [tablaEmp, settablaEmp] = useState([]);
   const [empleados, setempleados] = useState([]);
 
   const navigate = useNavigate();
+
+  if(!window.localStorage.getItem("token")){
+    navigate("/")
+  }
 
   useEffect(() => {
     async function dataEmpleados() {

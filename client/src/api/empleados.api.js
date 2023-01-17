@@ -19,3 +19,7 @@ export const actualizarEmpleado = async (dni, empleado) => {
 export const empleadobyDNI = async (dni) => {
   return await axios.get(`http://localhost:3000/empleados/${dni}`)
 }
+
+export const login =  async (empleado) =>{
+  return await axios.post("http://localhost:3000/loginUser",empleado)
+}

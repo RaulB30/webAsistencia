@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MantenimientoEmpleados from "./Pages/MantenimientoEmpleados";
 import FrmEmpleados from "./Pages/FrmEmpleados";
 import NotFound from "./Pages/NotFound";
@@ -10,7 +10,6 @@ import Login from "./Pages/Login";
 function App() {
   return (
     <>
-      <NavBar />
       <Routes>
         <Route
           path="/listadoEmpleados"
@@ -23,8 +22,8 @@ function App() {
           element={<MantenimientoEmpleados />}
         ></Route>
         <Route path="/prueba" element={<Prueba />}></Route>
-        <Route path="/editEmpleado/:id" element={<FrmEmpleados/>}></Route>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/editEmpleado/:id" element={<FrmEmpleados />}></Route>
+        <Route path="/" element={<Login />}></Route>
       </Routes>
     </>
   );
