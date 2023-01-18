@@ -3,9 +3,9 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MantenimientoEmpleados from "./Pages/MantenimientoEmpleados";
 import FrmEmpleados from "./Pages/FrmEmpleados";
 import NotFound from "./Pages/NotFound";
-import NavBar from "./Components/NavBar";
 import Prueba from "./Pages/Prueba";
 import Login from "./Pages/Login";
+import UserPage from "./Pages/UserPage";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path="/prueba" element={<Prueba />}></Route>
         <Route path="/editEmpleado/:id" element={<FrmEmpleados />}></Route>
         <Route path="/" element={<Login />}></Route>
+        <Route path="/userPage" element={<UserPage />}></Route>
       </Routes>
     </>
   );

@@ -1,0 +1,50 @@
+body{
+    background-color: gray;
+}
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: -100px auto;
+}
+
+.user_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 90vh;
+    margin: 0 auto;
+    gap: 10px
+}
+
+.user_main button {
+    padding: 50px;
+    width: 300px;
+    height: 200px;
+    font-size: 32px;
+    overflow: hidden;
+    cursor: pointer;
+    letter-spacing: 2px;
+    border: 1px solid black;
+    box-shadow: 1px 2px 1px rgba(255, 255, 255, 0.3);
+
+    border-radius: 15px;
+    color: white;
+    text-shadow: 1px 1px 6px black
+}
+
+.user_main button:hover {
+    opacity: 0.8;
+}
+
+.btnIngreso {
+    background-color: darkseagreen;
+}
+
+.btnSalida {
+    background-color: tomato;
+}

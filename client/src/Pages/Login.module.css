@@ -50,3 +50,10 @@
 .encabezado{
     display: block;
 }
+
+.login_olvide{
+    text-decoration: underline;
+    text-align: center;
+    letter-spacing: 0.8px;
+    
+}
