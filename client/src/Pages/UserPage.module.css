@@ -48,3 +48,15 @@ body{
 .btnSalida {
     background-color: tomato;
 }
+
+.user_footer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 6px black;
+    letter-spacing: 0.8px;
+    overflow: hidden;
+}

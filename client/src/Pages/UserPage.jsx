@@ -13,17 +13,32 @@ function UserPage() {
     })
     const tiempo = Date.now();
     const hoy = new Date(tiempo);
+
+    const logout = () =>{
+        window.localStorage.clear();
+        location.reload();
+    }
     return (
 
 
         <>
             <Reloj />
             <div className={style.main_container}>
-            <div className={style.user_main}>
-                <button className={style.btnIngreso}>Marcar Ingreso</button>
-                <button className={style.btnSalida}>Marcar Salida</button>
+                <div className={style.user_main}>
+                    <button className={style.btnIngreso}>Marcar Ingreso</button>
+                    <button className={style.btnSalida}>Marcar Salida</button>
+                </div>
             </div>
-            </div>
+
+            <footer>
+                <div className={style.user_footer}>
+                    <h4>{`Dni : ${window.localStorage.getItem("dni")}`}</h4>
+                    <h3>{`Usuario : ${window.localStorage.getItem("nombres")} ${window.localStorage.getItem("apePat")} ${window.localStorage.getItem("apeMat")}`}</h3>
+                    <button onClick={logout}>Cerrar Sesion</button>
+                </div>
+
+            </footer>
+
         </>
     )
 }

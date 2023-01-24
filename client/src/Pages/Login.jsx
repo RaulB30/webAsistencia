@@ -32,6 +32,11 @@ function Login() {
     try {
       const response = await login(user);
       window.localStorage.setItem("token", response.data.token)
+      window.localStorage.setItem("dni", response.data.dni)
+      window.localStorage.setItem("nombres", response.data.nombres)
+      window.localStorage.setItem("apePat", response.data.apePat)
+      window.localStorage.setItem("apeMat", response.data.apeMat)
+
       toast.success("Login correcto", {
         style: {
           color: "green",

@@ -30,7 +30,12 @@ export const loginEmpleado = async (req, res) => {
 
 
         res.send({
-            token
+            token,
+            dni: user.DNI,
+            nombres: user.NOMBRES,
+            apePat: user.APEPAT,
+            apeMat: user.APEMAT
+
         });
 
     } catch (error) {
